@@ -4,27 +4,43 @@
 %\geometry{landscape}                		% Activate for rotated page geometry
 %\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
-								% TeX will automatically convert eps --> pdf in pdflatex		
+					        % TeX will automatically convert eps --> pdf in pdflatex		
 \usepackage{amssymb}
+\usepackage{lineno}
+% \linenumbers
 
-%SetFonts
+% Hyperlink
+\usepackage{hyperref}
+\usepackage{cleveref}[2011/03/22]
 
 %SetFonts
 \usepackage[colorinlistoftodos]{todonotes}
 
-\title{Pandora-based Shower Reconstruction and $\pi^0$ Mass Reconstruction}
+\title{\bf{Pandora-based Shower Reconstruction and $\pi^0$ Mass Reconstruction}}
 \author{Yun-Tse Tsai}
-\date{}
+\date{\today}
 
 \begin{document}
 \maketitle
 
-\section{Introduction}
+% Introduction
+\input{tex/intro}
 
-\section{Shower Reconstruction}
-\subsection{Pandora Outputs}
-\subsection{Shower Geometry}
+% Shower reconstruction
+\input{tex/reco}
 
+% Merging
 
+% MC studies
+\input{tex/mc}
+
+% pi0 Reconstruction
+\input{tex/pi0reco}
+
+% Data
+\input{tex/data}
+
+% Summary
+\input{tex/summary}
 
 \end{document}  

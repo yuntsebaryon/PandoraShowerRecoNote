@@ -1,2 +1,2 @@
-/usr/texbin/pdflatex main.tex
-/usr/texbin/pdflatex main.tex
+/usr/texbin/pdflatex tex/main.tex
+/usr/texbin/pdflatex tex/main.tex
