@@ -101,6 +101,27 @@ largest eigenvalue to the largest one, i.e.
 \subsection{Starting Point}
 \label{sec:shrstartingpt}
 
+The starting point of a shower is determined by the vertex associated to
+the PFParticle.
+Both the vertex and the association are reconstructed by the algorithms
+within Pandora.
+
 % -----------------------------------------------------------------------
 \subsection{Calorimetry}
+
+The calorimetry quantities, such as energy, dQ/dx, and dE/dx, are
+evaluated using the algorithms described in DocDB XXXX.
+The sources of discrepancy in these quantities between the other
+shower reconstruction chain and this work are listed below,
+\begin{itemize}
+\item Clustering: Pandora provides the input clusters for energy
+      evaluation, and the reconstructed energy obviously depends
+      on clustering efficiency.
+\item Shower direction: The reconstructed dQ/dx and dE/dx rely on
+      both energy and shower direction.  
+      The different clustering (i.e. the  choice of hits) and 
+      shower direction thereby would alter the values of such
+      quantities.
+\end{itemize}
+
 
