@@ -13,15 +13,40 @@ MicroBooNE uses Pandora, which is integrated into the LArSoft toolkit
 via the \texttt{larpandora} interface,
 as one of the pattern recognition and clustering algorithms. \\
 \\
-In addition to clustering, Pandora provides further information, such
-as particle flow hierarchy, track-shower separation, three-dimensional
-spacepoints, and vertices of each particle.
+% Concept of PFParticle
+The outputs of Pandora are centralized in particle-flow particles, 
+or PFParticles, which include,
+\begin{itemize}
+\item PDG code
+\item Parent
+\item Daughters
+\end{itemize}
+Further, the PFParticles associate to the following objects created
+by Pandora,
+\begin{itemize}
+\item Cluster
+\item Spacepoint
+\item Vertex
+\item Seed
+\item Track
+\end{itemize}
+
 In the following sections, the algorithms of shower reconstruction 
 utilizing these features are described.
 
 % -----------------------------------------------------------------------
 \subsection{Direction}
 
+With the spacepoints, the three-dimensional points of charge deposition
+reconstructed by Pandora, we simply perform a 3-D principal component 
+analysis (PCA).
+The eigenvector corresponding to the largest eigenvalue determined from
+PCA is taken as the direction of the shower, as it represents the axis
+with the largest possible variance of the distribution of the spacepoints.
+The forward or backward direction is determined from the ordering of
+the spacepoints, which is included in the particle flow approach in
+the Pandora toolkit.  Further, it will be revisited in the succeeding
+shower reconstruction algorithms.
 
 % -----------------------------------------------------------------------
 \subsection{Geometry}
