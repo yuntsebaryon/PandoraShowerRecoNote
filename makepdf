@@ -1,2 +1,5 @@
 /usr/texbin/pdflatex tex/main.tex
+# /usr/texbin/bibtex main.aux
+# /usr/texbin/makeindex main.nlo -s nomencl.ist -o main.nls
+# /usr/texbin/pdflatex tex/main.tex
 /usr/texbin/pdflatex tex/main.tex
