@@ -1,10 +1,12 @@
 \section{Shower Reconstruction}
+\label{sec:reco}
 
 In this section we describe the underlying concepts for shower reconstruction.
 The technical details are dispicted in DocDB ?.
 
 % -----------------------------------------------------------------------
 \subsection{Brief Introduction to Pandora}
+\label{sec:pandora}
 
 Pandora is a toolkit for pattern recognition, aiming to 
 reconstruct particle flow in detectors with fine granularity, such as
@@ -41,6 +43,7 @@ utilizing these features.
 
 % -----------------------------------------------------------------------
 \subsection{Direction}
+\label{sec:shrdir}
 
 An important variable from shower reconstruction is the direction of the 
 original electromagnetic particle.
@@ -63,14 +66,40 @@ by PCA, and is saved for possible exploitation in other algorithms.
 
 % -----------------------------------------------------------------------
 \subsection{Geometry}
+\label{sec:shrgeo}
 
 % Length, width
-The length and the 2D width of a shower is also determined by the same PCA. 
+The length and the 2D width of a shower is also determined by the same
+principal component analysis.
+As the largest eigenvalue of the PCA accounts for the possible largest
+variance of the spacepoint distribution, the distance of three
+standard deviations can be used to represent the length of a shower.
+Moreover, the eigenvalues, or the variances, from PCA determine semi-axes
+of the spacepoint distribution, and therefore a factor of two has to be
+applied to obtain the full shower length.
+\begin{equation}
+\label{eq:shrlength}
+\textrm{Shower Length} = 2\times 3\times \sqrt{\textrm{the largest eigenvalue from PCA}}
+\end{equation}
+Similarly, we use~\Cref{eq:shrlength} with the other two eigenvalues
+from PCA to dispict the width of a shower.
+Currently the widths in the plane orthogonal to the principal component
+axis are not combined but stored individually.
 
 % Opening angle
+The opening angle of a shower can also simply approximated using the
+eigenvalues of PCA.
+A straightforward approach is to interpret the tangent of half the 
+opening angle as the ratio of the standard deviations of the second
+largest eigenvalue to the largest one, i.e.
+\begin{equation}
+\label{eq:shropeningangle}
+\textrm{Opening Angle} = 2\times \tan^{-1}({\frac{\textrm{the 2nd largest eigenvalue}}{\textrm{the largest eigenvalue}}})
+\end{equation}
 
 % -----------------------------------------------------------------------
 \subsection{Starting Point}
+\label{sec:shrstartingpt}
 
 % -----------------------------------------------------------------------
 \subsection{Calorimetry}
