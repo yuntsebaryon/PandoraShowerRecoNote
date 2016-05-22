@@ -17,39 +17,57 @@ as one of the pattern recognition and clustering algorithms. \\
 The outputs of Pandora are centralized in particle-flow particles, 
 or PFParticles, which include,
 \begin{itemize}
-\item PDG code
-\item Parent
-\item Daughters
+\item PDG code: mainly four types, 11 (shower-like),
+      13 (track-like), 12 (neutrino-like PFParticle with a shower-like
+      daughter), and 14 (neutrino-like PFParticle with a track-like daughter).
+\item Parent: indicates the parent of the PFParticle.
+\item Daughters: indicates the daughters (possibly a plural number) of
+      the PFParticle.
 \end{itemize}
 Further, the PFParticles associate to the following objects created
 by Pandora,
 \begin{itemize}
-\item Cluster
-\item Spacepoint
-\item Vertex
-\item Seed
+\item Cluster: collection of hits from a separate hit finding algorithm.
+\item Spacepoint: three-dimensional points indicating the 3D positions
+      of charge deposition; associating to the two-dimensional hits
+      reconstructed by the hit finder.
+\item Vertex: a 3D point representing the starting point of the PFParticle.
+\item Seed: not generated in a shower-like PFParticle
 \item Track
 \end{itemize}
 
-In the following sections, the algorithms of shower reconstruction 
-utilizing these features are described.
+In the following sections, we describe the algorithms of shower reconstruction 
+utilizing these features.
 
 % -----------------------------------------------------------------------
 \subsection{Direction}
 
-With the spacepoints, the three-dimensional points of charge deposition
-reconstructed by Pandora, we simply perform a 3-D principal component 
-analysis (PCA).
-The eigenvector corresponding to the largest eigenvalue determined from
-PCA is taken as the direction of the shower, as it represents the axis
+An important variable from shower reconstruction is the direction of the 
+original electromagnetic particle.
+We assume the direction of the vectorial summation of all showering particles 
+would retain that of the original particle.
+To obtain the direction,
+we simply perform a 3-D principal component 
+analysis (PCA) over all the spacepoint associated to a PFParticle.
+The eigenvector corresponding to the largest eigenvalue determined by
+PCA is taken to be the direction of the shower, as it represents the axis
 with the largest possible variance of the distribution of the spacepoints.
 The forward or backward direction is determined from the ordering of
-the spacepoints, which is included in the particle flow approach in
-the Pandora toolkit.  Further, it will be revisited in the succeeding
-shower reconstruction algorithms.
+the spacepoints, which is reconstructed based on the particle flow approach in
+the Pandora toolkit.
+Further, it will be revisited in the succeeding
+shower reconstruction algorithms.\\
+\\
+In addtion, the (unweighted) 3D centroid of a PFParticle is evaluated
+by PCA, and is saved for possible exploitation in other algorithms.
 
 % -----------------------------------------------------------------------
 \subsection{Geometry}
+
+% Length, width
+The length and the 2D width of a shower is also determined by the same PCA. 
+
+% Opening angle
 
 % -----------------------------------------------------------------------
 \subsection{Starting Point}
