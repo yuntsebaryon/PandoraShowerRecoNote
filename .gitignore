@@ -3,3 +3,5 @@
 *.pdf
 *.out
 *.swp
+*.bbl
+*.blg
