@@ -1,1 +1,73 @@
 \section{Simulation Studies}
+\label{sec:mc}
+
+In this section, we introduce several shower quality variables to estimate
+the quality of shower reconstruction in~\Cref{sec:shr_quality}, and examine
+shower reconstruction with simulated single particle Monte Carlo samples
+in~\Cref{sec:single_em,sec:single_pi0}.
+
+% -----------------------------------------------------------------------
+\subsection{Shower Quality}
+\label{sec:shr_quality}
+
+We make plots of variables of reconstructed shower profile and compare
+some of them with simulation.
+The object MC shower, which describes the truth level of detectable shower
+profile, or the best reconstruction quality we could achieve, 
+is used as the reference point of the comparison.
+The details about MC shower can be found in~\cite{DocDB3771}.
+Specifically, the direction of MC showers typically represents the truth 
+direction of the original electromagnetic particle, while the energy of
+MC shower accounts for that deposited in the detector.\\
+\\
+The shower quality variables are listed below,
+\begin{itemize}
+\item 3D angle difference, the angular difference in the shower direction 
+      between
+      MC and reconstructed showers in 3D.
+\item Shower length, the length of reconstructed showers, as described
+      in~\Cref{sec:shr_geometry}.
+\item Starting point difference, the 3D distance between the shower
+      starting point of MC shower and that of the reconstructed shower.
+\item Clustering efficiency, the ratio of sum of the charges
+      in a reconstructed shower to the total deposited charges in
+      each wire plane.
+\item Energy resolution, $\frac{\textrm{MC deposited energy}-\textrm{Reconstructed energy}}{\textrm{MC deposited energy}}$ in each wire plane.
+\item Energy asymmetry, $\frac{\textrm{MC deposited energy}-\textrm{Reconstructed energy}}{\textrm{MC deposited energy}+\textrm{Reconstructed energy}}$ in each wire plane.
+\item Energy correlation, a 2D histogram of reconstructed energy versus 
+      the MC deposited energy in each wire plane.
+\item dQ/dx, dE/dx, the quantities from shower reconstruction.
+\item Number of MC/reconstructed showers, the number of MC/reconstructed
+      showers in each event.
+\end{itemize}
+
+% -----------------------------------------------------------------------
+\subsection{Single Electromagnetic Particle Sample}
+\label{sec:single_em}
+
+We start estimating shower reconstruction qualities with 10,000 simulated
+single electron events.
+To disentangle different sources of inefficiency, we turn off the bad wire
+configuration in this sample; i.e. all the wires in the simulation are good.
+The ``BNB-like'' momentum and angle distributions are used to generate 
+such events, where the Laudau distribution is used to describe the ``BNB-like''
+features,
+\begin{equation}
+\label{eq:bnb-like-p}
+P(x) = \frac{1}{2\pi i}\int^{c+i\infty}_{c-i\infty}e^{xs+s\log s}ds,
+\end{equation}
+where $x = (p-0.3)/0.1$, and $p$ represents the modular momentum within
+a range of 0.1 to 1~GeV.
+
+
+% -----------------------------------------------------------------------
+\subsection{Single $\pi^0$ Sample}
+\label{sec:single_pi0}
+
+% -----------------------------------------------------------------------
+\subsection{Full BNB Neutrinos and Cosmic Sample}
+\label{sec:bnb}
+
+We have not started studies on the simulated BNB neutrino samples.
+
+

@@ -43,7 +43,7 @@ utilizing these features.
 
 % -----------------------------------------------------------------------
 \subsection{Direction}
-\label{sec:shrdir}
+\label{sec:shr_direction}
 
 An important variable from shower reconstruction is the direction of the 
 original electromagnetic particle.
@@ -66,7 +66,7 @@ by PCA, and is saved for possible exploitation in other algorithms.
 
 % -----------------------------------------------------------------------
 \subsection{Geometry}
-\label{sec:shrgeo}
+\label{sec:shr_geometry}
 
 % Length, width
 The length and the 2D width of a shower is also determined by the same
@@ -99,7 +99,7 @@ largest eigenvalue to the largest one, i.e.
 
 % -----------------------------------------------------------------------
 \subsection{Starting Point}
-\label{sec:shrstartingpt}
+\label{sec:shr_startingpt}
 
 The starting point of a shower is determined by the vertex associated to
 the PFParticle.
@@ -108,7 +108,7 @@ within Pandora.
 
 % -----------------------------------------------------------------------
 \subsection{Calorimetry}
-\label{sec:shrcal}
+\label{sec:shr_calorimetry}
 
 The calorimetry quantities, such as energy, dQ/dx, and dE/dx, are
 evaluated using the algorithms described in DocDB XXXX.
@@ -125,4 +125,7 @@ shower reconstruction chain and this work are listed below,
       quantities.
 \end{itemize}
 
+The calorimetry quantities are evaluated for each individual plane,
+since the charge and energy variables are determined from charge
+deposition in hits, the 2D reconstructed objects.
 
