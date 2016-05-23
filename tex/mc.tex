@@ -71,9 +71,16 @@ might have included minor updates.
 Nonetheless, there is no significant changes in simulation
 since MCC~7.
 The MC samples are subsequently larlited with \texttt{larlite} 
-\texttt{v05\_02\_00}, and the following studies are done with the
+\texttt{v05\_02\_00}, and the shower reconstruction is performed in the
 \texttt{larlite} framework.\\
 \\
+% Shower reconstruction
+Only the shower-like PFParticles (with a PDG code 11) are selected
+as shower candidates and reconstructed in this section.
+We extend the selection, and the study is presented 
+in~\Cref{sec:ongoing}. \\
+\\
+% Results
 Fig.? shows good resolution on shower directions and shower starting
 points.
 In particular, the two variables are better reconstructed in
@@ -98,6 +105,61 @@ PFParticle.
 % -----------------------------------------------------------------------
 \subsection{Single $\pi^0$ Sample}
 \label{sec:single_pi0}
+
+Reconstruction of the $\pi^0$ invariant mass is a benchmark of
+the quality of shower reconstruction, as both the energy and
+direction are involved,
+\begin{equation}
+\label{eq:pi0_mass}
+m_{\pi^0} = \sqrt{2E_1 E_2(1-\cos\theta_{12})},
+\end{equation}
+where $E_1$ and $E_2$ represent the energy of the two photons
+from the $\pi^0$ decay, and $\theta_{12}$ the angle between the
+two photons.\\
+\\
+To examine the reconstruction of $\pi^0$ mass, a single $\pizero$
+Monte Carlo sample is generated with the momentum and
+angular distributions identical to those in the single electron
+and photon samples detailed in~\Cref{sec:single_em}.
+Moreover, the simulation and reconstruction configuration is
+exactly the same; for instance,
+the shower reconstruction is performed on shower-like PFParticles
+in the plots illustrated here.\\
+\\
+The reconstructed showers are matched to the MC showers according
+to the timing and the waveforms on the wires.
+We select the events with the following criteria,
+\begin{itemize}
+\item containing exactly two reconstructed and matched showers,
+\item both reconstructed energy greater than 0.1~MeV,
+\item recontructed $\cos\theta_{12}$ less than 1,
+\end{itemize}
+and the $\pizero$ mass obtained from those two showers
+are shown in~Fig.?.
+In other words, the $\pizero$ mass is reconstructed from the perfect
+combination of reconstructed showers.
+A resonance peak is presented in the $\pizero$ mass distribution.\\
+\\
+% DCA, MC/reco combination to check the features of the pi0 mass 
+% distributions
+We further investigate the distance of closest approach between
+the $\pizero$ decay point from the MC truth information and
+the reconstructed shower direction.
+Fig.? demonstrates the reconstructed shower direction is reasonable.
+In addition, as shown in Fig.?,
+we check the impact of the energy and direction by
+combining quatities from MC showers
+and reconstructed showers,
+\begin{itemize}
+\item MC truth energy and direction: a $\delta$-function at 134~MeV,
+\item MC deposited energy and MC truth direction: the long tail
+      represents the energy outside the detector,
+\item MC deposited energy and reconstructed direction: the smeared
+      direction results in the long tail in the $\pizero$ mass distribution,
+\item reconstructed energy and MC truth direction: the deficit in
+      the reconstructed energy results in the position of the peak,
+      as well as the width of the distribution.
+\end{itemize}
 
 % -----------------------------------------------------------------------
 \subsection{Full BNB Neutrinos and Cosmic Sample}
