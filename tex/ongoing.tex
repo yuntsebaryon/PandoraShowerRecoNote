@@ -53,7 +53,7 @@ does not have a significant impact on the energy deficiency.
 \subsection{Clustering Inefficiency}
 \label{sec:clustering_ineff}
 
-Fig.x demonstrates (5-10)\% of energy deficit causing by clustering
+Fig.x suggests (5-10)\% of energy deficit causing by clustering
 inefficiency in addition to the 15\% described in~\Cref{sec:energy_deficit}.
 It is noticable Pandora creates multiple small PFParticles in 
 a single electron/photon event, and leaves a number of hits unclustered.
@@ -72,21 +72,94 @@ Aiming to investigate how much energy would be retrieved by merging
 multiple PFParticles, we include both shower-like and track-like
 PFParticles in this study.\\
 \\
-The current merging algorithm is designed to cope with ... scattering
-observed by handscanning.
-
+The current merging algorithm is designed to cope with the showers
+following the photons produced by Bremsstrahlung,
+which is often observed in event displays,
+and can potentially reduce the impact of bad wires.
+PFParticles are merged if either of the following requirements is met:
 \begin{itemize}
-\item the vertex of the PFParticle falls within its cone
-\item the principal component axis of the PFParticle is aligned
-      within the cone
+\item the vertex of the less energetic PFParticle falls within the 
+      cone of the other
+\item the principal component axis of one PFParticle is aligned
+      within the cone of the other
 \end{itemize}
+The cone size in this study is set to the opening angle of the shower,
+but is subject to be optimized in the future.\\
+\\
+The shower reconstruction based on merged PFParticles are compared
+to that on shower-like ones in Fig.x,y,z,
+for the single electron, photon, and $\pizero$ samples, respectively.
+Using merged PFParticles significantly improve the efficiency on
+shower reconstruction and thereby the $\pizero$ mass reconstruction,
+as there are nonnegligible PFParticles in these samples identified
+as tracks.
+Nonetheless, the energy deficiency persists with a similar amount in
+the reconstruction based on merged PFParticles, suggesting the broken
+PFParticles are not the main source of clustering inefficiency.\\
+\\
+Incidentally,
+the energy resolution distributions for merged PFParticles have a 
+low energy tail (a small peak near one) owing to the fact that
+small PFParticles are often identified as tracks, and are taken into
+account in this case.
 
 % -----------------------------------------------------------------------
 \subsubsection{Adding Unclustered Hits}
 \label{sec:adding_hits}
 
-% -----------------------------------------------------------------------
-\subsection{Track-Shower Separation}
+To further investigate the key source of clustering inefficiency
+and retrieve unreconstructed energy,
+we add unclustered hits into the hit collection associated to a 
+PFParticle according to a cone algorithm.
+This study is currently underway.
 
 % -----------------------------------------------------------------------
-\subsection{Electron-Photon Separation}
+\subsection{Short Term Plans}
+\label{sec:plans}
+
+We plan to complete the studies on the BNB neutrino and cosmogenic
+background simulation as mentioned in~\Cref{sec:bnb},
+as well as to perform low level checks (e.g.~\cite{DocDB5814}) 
+on energy calibration
+and other possible sources of energy deficiency.
+Moreover, a few aspects to potentially solidify the shower reconstruction
+are sketched below.
+\begin{itemize}
+\item {\bf PFParticle Merging and Reclustering} \\
+We will optimize the parameters for PFParticle merging algorithms,
+and start testing as well as further developing the reclustering algorithms
+which add unclustered hits into PFParticles and would possibly
+eliminate the energy deficiency.
+The algorithms would possibly be integrated into the Pandora
+toolkit in as a mid-term goal.
+
+\item {\bf Shower Profiling} \\
+It is likely that merging and reclustering algorithms would not
+retrieve all the energy deposition of a shower.
+We thereby plan to study the profile of showers and develop
+correction factors accordingly.
+
+\item {\bf Track-Shower Identification} \\
+From the studies in~\Cref{sec:merging}, we notice
+a nonnegligible fraction of PFParticles originating from an 
+electromagnetic particle is identified as a track by Pandora.
+The track-shower identification thereby needs to be modified.
+We will examine the features of tracks and showers based on
+simulation and develop a track/shower determination.
+
+\item {\bf Electron-Photon Separation} \\
+As shown in~Fig.x, the electron-photon separation in
+dE/dx needs to be improved such that efficiently distinguishing 
+those two particles can be achieved.
+By further investigating the features of showers we may be able 
+to optimize or develop algorithms for dE/dx.
+
+\item {\bf $\pizero$ Mass Reconstruction} \\
+In this study we reconstruct the $\pizero$ mass by
+simply utilizing the hierarchy feature of the 
+Pandora outputs.
+We will try the algorithm stated in~\cite{DocDB5520}, examine
+the efficiency in both the approaches, and possibly develop
+other algorithms.
+\end{itemize}
+
