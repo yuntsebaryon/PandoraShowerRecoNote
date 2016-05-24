@@ -1,18 +1,92 @@
-\section{Ongoing Studies}
+\section{Ongoing Studies and Plans}
 \label{sec:ongoing}
+
+In this section, we discuss the ongoing studies on the deficit in
+the reconstructed energy, and the proposed treatments which is being
+tested.
+In addition, we outline the plans on the shower reconstruction in
+near future, which aim to cope with events with more complicated
+topologies.
 
 % -----------------------------------------------------------------------
 \subsection{Energy Deficit}
 \label{sec:energy_deficit}
 
+As mentioned in~\Cref{sec:data_pi0}, the energy deficit in the reconstructed
+showers has the greatest impact in the reconstructed $\pizero$ mass.
+First of all, we try to disentangle the impact of clustering inefficiency
+and that of other possible sources.
+Starting with the single electron sample,
+we merge all reconstructed hits in an event into a PFParticle
+and reconstruct the energy of the PFParticle with the same algorithm
+mentioned in~\Cref{sec:shr_calorimetry}.
+Such a PFParticle represents the perfect clustering, as all the hits
+in a single particle event come from an original particle.\\
+\\
+Fig.x displays the energy resolution (defined in~\Cref{sec:shr_quality})
+in the three wire planes with the four combinations of the wire configuratios 
+and the hit producers,
+\begin{itemize}
+\item Wire configuration
+  \begin{itemize}
+  \item all good wires (G): all the wires are good wires,
+  \item bad wires (B): using the bad wire configuration according to
+        the database,
+  \end{itemize}
+\item Hit producer
+  \begin{itemize}
+  \item gaushit (Gaushit): hits produced by the Gaussian hit finder;
+        i.e. all the hits in an event,
+  \item pandoraCosmicsKHitRemoval (PandoraCRm): hits produced by
+        pandoraCosmics, which removes the hits from cosmic rays~\cite{DocDB5828}.
+  \end{itemize}
+\end{itemize}
+The peak of energy resolution in all the combinations is offset
+from zero by about 15\%, demonstrating the amount of the energy deficit
+beyond clustering inefficiency.
+This might attribute to energy calibration, and/or small amount of 
+charge deposition which does not pass the threshold in the hit finder.
+Furthermore, the existence of bad wires degrades the resolution, but
+does not have a significant impact on the energy deficiency.
+
 % -----------------------------------------------------------------------
 \subsection{Clustering Inefficiency}
 \label{sec:clustering_ineff}
 
+Fig.x demonstrates (5-10)\% of energy deficit causing by clustering
+inefficiency in addition to the 15\% described in~\Cref{sec:energy_deficit}.
+It is noticable Pandora creates multiple small PFParticles in 
+a single electron/photon event, and leaves a number of hits unclustered.
+To retrieve the energy, we start with merging PFParticles, and then
+perform a reclustering algorithm to collect the unclustered hits.
+\Cref{sec:merging,sec:adding_hits} sketch the two steps respectively.
 
 % -----------------------------------------------------------------------
-% \subsubsection{Merging PFParticles}
+\subsubsection{Merging PFParticles}
+\label{sec:merging}
 
+Not only does Pandora create multiple small PFParticles in
+the single electron, photon samples,
+but it also identifies a number of PFParticles as tracks.
+Aiming to investigate how much energy would be retrieved by merging
+multiple PFParticles, we include both shower-like and track-like
+PFParticles in this study.\\
+\\
+The current merging algorithm is designed to cope with ... scattering
+observed by handscanning.
+
+\begin{itemize}
+\item the vertex of the PFParticle falls within its cone
+\item the principal component axis of the PFParticle is aligned
+      within the cone
+\end{itemize}
 
 % -----------------------------------------------------------------------
-% \subsubsection{Adding Unclustered Hits}
+\subsubsection{Adding Unclustered Hits}
+\label{sec:adding_hits}
+
+% -----------------------------------------------------------------------
+\subsection{Track-Shower Separation}
+
+% -----------------------------------------------------------------------
+\subsection{Electron-Photon Separation}
