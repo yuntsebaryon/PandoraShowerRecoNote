@@ -1,0 +1,5 @@
+NRecoShowers:    2.0
+RecoEMin:    0.1
+RecoCosThetaMax:    1.0
+NEvents( Merged ): 4160
+NEvents( Shower like ): 1816

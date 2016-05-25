@@ -1,0 +1,4 @@
+NRecoShowers:    2.0
+RecoEMin:    0.1
+RecoCosThetaMax:    1.0
+NEvents( #pi^{0} ): 1816

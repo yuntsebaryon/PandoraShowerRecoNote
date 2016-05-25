@@ -1,0 +1,20 @@
+# Source.1.File: /Users/yuntse/Data/uboone/lar_v05_08_00/showerreco_v4/bnblike_eminus_goodwires/ShowerQuality_singleshowers_pandoraNu3D_v13_ana_out.root
+# Source.1.LegendName: electron (G)
+# Source.1.Color: 856
+# Source.1.LineStyle: 5
+
+Source.1.File: /Users/yuntse/Data/uboone/lar_v05_08_00/showerreco_v4/bnblike_eminus_badwires/ShowerQuality_singleshowers_pandoraNuMerged3D_v13_ana_out.root 
+Source.1.LegendName: Merged
+Source.1.Color: 593
+# Source.2.LineStyle: 5
+
+Source.2.File: /Users/yuntse/Data/uboone/lar_v05_08_00/showerreco_v4/bnblike_eminus_badwires/ShowerQuality_singleshowers_pandoraNu3D_v13_ana_out.root
+Source.2.LegendName: Shower-like
+Source.2.Color: 906
+Source.2.LineStyle: 5
+
+# Source.4.File: /Users/yuntse/Data/uboone/lar_v05_08_00/showerreco_v4/bnblike_gamma_badwires/ShowerQuality_singleshowers_pandoraNu3D_v11_01_ana_out.root
+# Source.4.LegendName: PandoraNu
+# Source.4.Color: 797
+# Source.4.LineStyle: 5
+
