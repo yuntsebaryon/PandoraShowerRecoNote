@@ -8,7 +8,7 @@ The technical details are dispicted in DocDB ?.
 \subsection{Brief Introduction to Pandora}
 \label{sec:pandora}
 
-Pandora is a toolkit for pattern recognition, aiming to 
+Pandora~\cite{DocDB5828} is a toolkit for pattern recognition, aiming to 
 reconstruct particle flow in detectors with fine granularity, such as
 detectors of high-energy lepton colliders, and LAr TPC.
 MicroBooNE uses Pandora, which is integrated into the LArSoft toolkit
@@ -21,7 +21,8 @@ or PFParticles, which include,
 \begin{itemize}
 \item PDG code: mainly four types, 11 (shower-like),
       13 (track-like), 12 (neutrino-like PFParticle with a shower-like
-      daughter), and 14 (neutrino-like PFParticle with a track-like daughter).
+      daughter), and 14 (neutrino-like PFParticle with all daughters
+      track-like).
 \item Parent: indicates the parent of the PFParticle.
 \item Daughters: indicates the daughters (possibly a plural number) of
       the PFParticle.
@@ -38,9 +39,9 @@ by Pandora,
 \item Track
 \end{itemize}
 
-Each PFParticle is exploited as a shower candidate.
-In the following sections, we describe the algorithms of shower reconstruction 
-utilizing PFParticles and associated features.
+In this study, each PFParticle is exploited as a shower candidate.
+We describe the algorithms of shower reconstruction 
+utilizing PFParticles and associated features in the following sections.
 
 % -----------------------------------------------------------------------
 \subsection{Direction}
@@ -48,22 +49,22 @@ utilizing PFParticles and associated features.
 
 An important variable from shower reconstruction is the direction of the 
 original electromagnetic particle.
-We assume the direction of the vectorial summation of all showering particles 
-would retain that of the original particle.
+We assume the vectorial summation of all showering particles 
+would retain the direction of the original particle.
 To obtain the direction,
-we simply perform a 3-D principal component 
-analysis (PCA) over all the spacepoint associated to a PFParticle.
+we simply perform a 3-dimensional (3D) principal component 
+analysis (PCA) over all the spacepoints associated to a PFParticle.
 The eigenvector corresponding to the largest eigenvalue determined by
 PCA is taken to be the direction of the shower, as it represents the axis
 with the largest possible variance of the distribution of the spacepoints.
 The forward or backward direction is determined from the ordering of
-the spacepoints, which is reconstructed based on the particle flow approach in
-the Pandora toolkit.
-Further, it will be revisited in the succeeding
-shower reconstruction algorithms.\\
+the spacepoints, which is reconstructed based on the particle flow approach
+within the Pandora toolkit.\\
+% It will be revisited in the succeeding
+% shower reconstruction algorithms.\\
 \\
-In addtion, the (unweighted) 3D centroid of a PFParticle is evaluated
-by PCA, and is saved for possible exploitation in other algorithms.
+In addtion, the (unweighted) 3D centroid of a PFParticle evaluated
+by PCA is saved for possible exploitation in other algorithms.
 
 % -----------------------------------------------------------------------
 \subsection{Geometry}
@@ -91,8 +92,8 @@ axis are not combined but stored individually.\\
 The opening angle of a shower can also simply approximated using the
 eigenvalues of PCA.
 A straightforward approach is to interpret the tangent of half the 
-opening angle as the ratio of the standard deviations of the second
-largest eigenvalue to the largest one, i.e.
+opening angle as the ratio of the standard deviations for the second
+largest eigenvalue to that for the largest one, i.e.
 \begin{equation}
 \label{eq:shropeningangle}
 \textrm{Opening Angle} = 2\times \tan^{-1}({\frac{\textrm{the 2nd largest eigenvalue}}{\textrm{the largest eigenvalue}}})
@@ -105,7 +106,38 @@ largest eigenvalue to the largest one, i.e.
 The starting point of a shower is determined by the vertex associated to
 the PFParticle.
 Both the vertex and the association are reconstructed by the algorithms
-within Pandora.
+within Pandora.\\
+\\
+An example of a reconstructed shower in a single electron simulated event
+is illustrated in~\Cref{fig:shr_reco_example}.
+The cone represnts the location and the geometry of the shower, and
+the tip of the cone indicates the starting point discussed in this section.
+
+% -----------------------------------------------------------------------
+\begin{figure}[htbp]
+\begin{center}
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[angle=270,width=\linewidth]{figs/reco/single_e_Evt1.png}
+\caption{Reconstructed shower in 3D event display.
+The points indicate the reconstructed spacepoints, and the cone
+represents the shower.}
+\label{fig:shr_reco_example_3d}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=0.85\linewidth]{figs/reco/single_e_Evt1U.png}\\
+\includegraphics[width=0.85\linewidth]{figs/reco/single_e_Evt1V.png}\\
+\includegraphics[width=0.85\linewidth]{figs/reco/single_e_Evt1Y.png}
+\caption{Reconstructed shower in the U, V, and Y wire planes.
+The points represent the reconstructed hits, while the triangles
+profile the reconstructed shower.}
+\label{fig:shr_reco_example_2d}
+\end{subfigure}
+\caption{An example of a reconstructed shower from single electron
+simulated event.}
+\label{fig:shr_reco_example}
+\end{center}
+\end{figure}
+% -----------------------------------------------------------------------
 
 % -----------------------------------------------------------------------
 \subsection{Calorimetry}
@@ -128,5 +160,5 @@ shower reconstruction chain and this work are listed below,
 
 The calorimetry quantities are evaluated for each individual plane,
 since the charge and energy variables are determined from charge
-deposition in hits, the 2D reconstructed objects.
+deposition in hits, 2D reconstructed objects.
 
