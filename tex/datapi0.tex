@@ -2,13 +2,16 @@
 \label{sec:data_pi0}
 
 % Samples
-We use two data samples in this study,
-\begin{itemize}
-\item 12 events, \texttt{PiZeroROI} + handscanning
-\item 6 events, NuMuCC filter + \texttt{PiZeroROI} + handscanning
-\end{itemize}
-
-All the shower-like PFParticles in the events in the data samples 
+% We use two data samples in this study,
+% \begin{itemize}
+% \item 12 events, \texttt{PiZeroROI} + handscanning
+% \item 6 events, NuMuCC filter + \texttt{PiZeroROI} + handscanning
+% \end{itemize}
+In this study, we investigate six events in data which pass
+the NuMuCC filter, \texttt{PiZeroROI} selection and 
+handscanning (ref.xx).\\
+\\
+All the shower-like PFParticles in the events in the data sample
 are reconstructed as described in~\Cref{sec:reco}.
 The subsequent step would be to find the two showers decaying from a 
 $\pizero$ so that the $\pizero$ mass can be reconstructed according
@@ -23,22 +26,42 @@ Utilizing the hierarchy feature of Pandora outputs thereby becomes
 the most straightforward strategy.
 We loop over all the neutrino-like PFParticles (PDG code 12 or 14), 
 identifying the one with at least two shower-like daughters.
-In most of the events, the neutrino-like PFParticle has exactly two 
+In most of the events (five out of six), this kind of neutrino-like 
+PFParticle has exactly two 
 shower-like daughters, and the $\pizero$ mass is directly evaluated
 from those two showers.
 In the case that there are three shower-like daughters, we loop over
 all the combinations of the showers and select the one with the largest
 reconstructed $\pizero$ mass.
 This approach gives us a reasonable result in our high-purity samples
-as shown in Fig.x.\\
+as shown in~\Cref{fig:mpi0_data,table:mpi0_data}.
+The values of nonzero $\pizero$ reconstructed mass are roughly
+consistent with the peak value of the $\pizero$ distribution obtained
+from single $\pizero$ MC events, \Cref{fig:mpi0_single_pi0}.\\
 \\
+% --------------------------------------------------------------------
+% Figure: pi0 mass
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.75\textwidth]{figs/datapi0/data/RecoPi0Mass.eps}
+\caption{Reconstructed $\pizero$ mass distribution from the six data events.
+The event with zero reconstructed $\pizero$ mass is not included in this
+figure.}
+\label{fig:mpi0_data}
+\end{center}
+\end{figure}
+% --------------------------------------------------------------------
+
+\input{tables/datapi0mass}
+
 % -----------------------------------------------------------------------
 % Ongoing issues
 The most relevant topic on the current $\pizero$ mass reconstruction
 in high-purity $\pizero$ samples is the deficiency in the reconstructed
-energy, which shifts the peak of the $\pizero$ mass distribution.
+energy, which shifts the peak of the $\pizero$ mass distribution, as
+demonstrated in~\Cref{fig:mpi0_single_pi0}.
 The same feature is obviously seen in the studies with the single electron
-and photon MC samples, as mentioned in~\Cref{sec:single_em}.
+and photon MC samples in~\Cref{sec:single_em}.
 We discuss the ongoing studies and possible corrections in~\Cref{sec:ongoing}.
 
 

@@ -23,7 +23,8 @@ mentioned in~\Cref{sec:shr_calorimetry}.
 Such a PFParticle represents the perfect clustering, as all the hits
 in a single particle event come from an original particle.\\
 \\
-Fig.x displays the energy resolution (defined in~\Cref{sec:shr_quality})
+\Cref{fig:energy_deficiency} displays the energy resolution (defined 
+in~\Cref{sec:shr_quality})
 in the three wire planes with the four combinations of the wire configuratios 
 and the hit producers,
 \begin{itemize}
@@ -42,24 +43,57 @@ and the hit producers,
   \end{itemize}
 \end{itemize}
 The peak of energy resolution in all the combinations is offset
-from zero by about 15\%, demonstrating the amount of the energy deficit
+from zero by about 15\%, indicating the amount of the energy deficit
 beyond clustering inefficiency.
 This might attribute to energy calibration, and/or small amount of 
 charge deposition which does not pass the threshold in the hit finder.
 Furthermore, the existence of bad wires degrades the resolution, but
 does not have a significant impact on the energy deficiency.
 
+% --------------------------------------------------------------------
+% Figure: Energy checks
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.45\textwidth]{figs/ongoing/energy/EnergyResU.eps}
+\includegraphics[width=0.45\textwidth]{figs/ongoing/energy/EnergyResV.eps}
+\includegraphics[width=0.45\textwidth]{figs/ongoing/energy/EnergyResY.eps}
+\caption{The energy resolution of all reconstructed hits compared to the
+true deposited energy in the U, V, and Y wire planes.
+The legends are explained in the text.}
+\label{fig:energy_deficiency}
+\end{center}
+\end{figure}
+% --------------------------------------------------------------------
+
+
 % -----------------------------------------------------------------------
 \subsection{Clustering Inefficiency}
 \label{sec:clustering_ineff}
 
-Fig.x suggests (5-10)\% of energy deficit causing by clustering
+\Cref{fig:clustering_deficiency} suggests (5-10)\% of energy deficit 
+causing by clustering
 inefficiency in addition to the 15\% described in~\Cref{sec:energy_deficit}.
 It is noticable Pandora creates multiple small PFParticles in 
 a single electron/photon event, and leaves a number of hits unclustered.
 To retrieve the energy, we start with merging PFParticles, and then
 perform a reclustering algorithm to collect the unclustered hits.
 \Cref{sec:merging,sec:adding_hits} sketch the two steps respectively.
+
+% --------------------------------------------------------------------
+% Figure: Clustering
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.45\textwidth]{figs/ongoing/clustering/EnergyResU.eps}
+\includegraphics[width=0.45\textwidth]{figs/ongoing/clustering/EnergyResV.eps}
+\includegraphics[width=0.45\textwidth]{figs/ongoing/clustering/EnergyResY.eps}
+\caption{The energy resolution of all reconstructed hits, clustered hits 
+compared to the
+true deposited energy in the U, V, and Y wire planes.
+The legends are explained in the text.}
+\label{fig:clustering_deficiency}
+\end{center}
+\end{figure}
+% --------------------------------------------------------------------
 
 % -----------------------------------------------------------------------
 \subsubsection{Merging PFParticles}
@@ -87,7 +121,7 @@ The cone size in this study is set to the opening angle of the shower,
 but is subject to be optimized in the future.\\
 \\
 The shower reconstruction based on merged PFParticles are compared
-to that on shower-like ones in Fig.x,y,z,
+to that on shower-like ones in~\Cref{fig:shr_quality_merged_single_e,fig:shr_quality_merged_single_gamma,fig:mpi0_merged_single_pi0},
 for the single electron, photon, and $\pizero$ samples, respectively.
 Using merged PFParticles significantly improve the efficiency on
 shower reconstruction and thereby the $\pizero$ mass reconstruction,
@@ -97,6 +131,69 @@ Nonetheless, the energy deficiency persists with a similar amount in
 the reconstruction based on merged PFParticles, suggesting the broken
 PFParticles are not the main source of clustering inefficiency.\\
 \\
+% --------------------------------------------------------------------
+% Figure: Shower quality for single e events
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/AngleDiff.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/StartingPointAcc.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/Length.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/ClusterEffU.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/ClusterEffV.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/ClusterEffY.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/EnergyResU.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/EnergyResV.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/EnergyResY.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/dEdxU.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/dEdxV.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/dEdxY.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/dQdxU.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/dQdxV.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/dQdxY.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/eminus/NRecoShowers.eps}
+\caption{Shower quality reconstructed from merged and shower-like PFParticles
+in the single electron MC samples.}
+\label{fig:shr_quality_merged_single_e}
+\end{center}
+\end{figure}
+% -------------------------------------------------------------------
+% --------------------------------------------------------------------
+% Figure: Shower quality for single gamma events
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/AngleDiff.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/StartingPointAcc.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/Length.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/ClusterEffU.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/ClusterEffV.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/ClusterEffY.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/EnergyResU.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/EnergyResV.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/EnergyResY.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/dEdxU.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/dEdxV.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/dEdxY.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/dQdxU.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/dQdxV.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/dQdxY.eps}
+\includegraphics[width=0.3\textwidth]{figs/ongoing/gamma/NRecoShowers.eps}
+\caption{Shower quality reconstructed from merged and shower-like PFParticles
+in the single photon MC samples.}
+\label{fig:shr_quality_merged_single_gamma}
+\end{center}
+\end{figure}
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
+% Figure: pi0 mass
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.75\textwidth]{figs/ongoing/pi0/RecoPi0Mass.eps}
+\caption{Reconstructed $\pizero$ mass distribution from merged and
+shower-like PFParticles in the single $\pizero$ MC sample.}
+\label{fig:mpi0_merged_single_pi0}
+\end{center}
+\end{figure}
+% --------------------------------------------------------------------
 Incidentally,
 the energy resolution distributions for merged PFParticles have a 
 low energy tail (a small peak near one) owing to the fact that

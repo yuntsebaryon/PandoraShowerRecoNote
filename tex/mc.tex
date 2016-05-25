@@ -10,10 +10,10 @@ in~\Cref{sec:single_em,sec:single_pi0}.
 \subsection{Shower Quality}
 \label{sec:shr_quality}
 
-We make plots of variables of reconstructed shower profile and compare
+We make plots of variables of reconstructed shower profile, and compare
 some of them with simulation.
 The object MC shower, which describes the truth level of detectable shower
-profile, or the best reconstruction quality we could achieve, 
+profile, or the best reconstructed quality that could be achieved, 
 is used as the reference point of the comparison.
 The details about MC shower can be found in~\cite{DocDB3771}.
 Specifically, the direction of MC showers typically represents the truth 
@@ -37,7 +37,7 @@ The shower quality variables are listed below,
 \item Energy correlation, a 2D histogram of reconstructed energy versus 
       the MC deposited energy in each wire plane.
 \item dQ/dx, dE/dx, the quantities from shower reconstruction.
-\item Number of MC/reconstructed showers, the number of MC/reconstructed
+\item Number of MC (reconstructed) showers, the number of MC (reconstructed)
       showers in each event.
 \end{itemize}
 
@@ -78,22 +78,53 @@ The MC samples are subsequently larlited with \texttt{larlite}
 Only the shower-like PFParticles (with a PDG code 11) are selected
 as shower candidates and reconstructed in this section.
 We extend the selection, and the study is presented 
-in~\Cref{sec:ongoing}. \\
+in~\Cref{sec:merging}. \\
 \\
 % Results
-Fig.? shows good resolution on shower directions and shower starting
-points.
-In particular, the two variables are better reconstructed in
-electron events, possibly owing to the fact that photons are
-not detected before their pair production.\\
+\Cref{fig:shr_quality_single_em} shows good resolution on 
+shower directions and shower starting points.
+% In particular, the two variables are better reconstructed in
+% electron events, possibly owing to the fact that photons are
+% not detected before their pair production.\\
+In particular, the quantities are comparative in both the electron
+and photon samples, possibly owing to some quality cuts within
+the Pandora toolkit.\\
 \\
-Energy deficiency is manifested in Fig.?.
+% --------------------------------------------------------------------
+% Figure: Shower quality for single e/gamma events
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/AngleDiff.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/StartingPointAcc.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/Length.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/ClusterEffU.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/ClusterEffV.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/ClusterEffY.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/EnergyResU.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/EnergyResV.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/EnergyResY.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/dEdxU.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/dEdxV.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/dEdxY.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/dQdxU.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/dQdxV.eps}
+\includegraphics[width=0.3\textwidth]{figs/mc/single_em/dQdxY.eps}
+\caption{Shower reconstruction quality of single electron and single
+photon MC samples.  The legend (G) indicates the sample with the configuration
+of all good wires.}
+\label{fig:shr_quality_single_em}
+\end{center}
+\end{figure}
+% --------------------------------------------------------------------
+
+
+Energy deficiency is manifested in~\Cref{fig:shr_quality_single_em}.
 Possible sources may come from
 \begin{itemize}
-\item charge deposits below the threshold of the hit finder
-\item missing charge deposits owing to bad wires
-\item clustering inefficiency
-\item energy calibration
+\item charge deposits below the threshold of the hit finder,
+\item missing charge deposits owing to bad wires,
+\item clustering inefficiency,
+\item energy calibration.
 \end{itemize}
 We further discuss the sources in~\Cref{sec:ongoing}. 
 The peaks at zero in all the clustering efficiency and calorimetry
@@ -103,11 +134,12 @@ PFParticle.
 
 
 % -----------------------------------------------------------------------
+\clearpage
 \subsection{Single $\pi^0$ Sample}
 \label{sec:single_pi0}
 
 Reconstruction of the $\pi^0$ invariant mass is a benchmark of
-the quality of shower reconstruction, as both the energy and
+shower reconstruction qualities, as both the energy and
 direction are involved,
 \begin{equation}
 \label{eq:pi0_mass}
@@ -117,12 +149,12 @@ where $E_1$ and $E_2$ represent the energy of the two photons
 from the $\pi^0$ decay, and $\theta_{12}$ the angle between the
 two photons.\\
 \\
-To examine the reconstruction of $\pi^0$ mass, a single $\pizero$
-Monte Carlo sample is generated with the momentum and
+To examine the reconstruction of $\pi^0$ mass, 10,000 single $\pizero$
+Monte Carlo events are generated with the momentum and
 angular distributions identical to those in the single electron
 and photon samples detailed in~\Cref{sec:single_em}.
 Moreover, the simulation and reconstruction configuration is
-exactly the same; for instance,
+exactly the same as that in the other samples; for instance,
 the shower reconstruction is performed on shower-like PFParticles
 in the plots illustrated here.\\
 \\
@@ -135,23 +167,43 @@ We select the events with the following criteria,
 \item recontructed $\cos\theta_{12}$ less than 1,
 \end{itemize}
 and the $\pizero$ mass obtained from those two showers
-are shown in~Fig.?.
+are shown in~\Cref{fig:mpi0_single_pi0}.
 In other words, the $\pizero$ mass is reconstructed from the perfect
 combination of reconstructed showers.
-A resonance peak is presented in the $\pizero$ mass distribution.\\
+1,816 events fulfill these criteria out of 10,000 single $\pizero$s,
+and a resonance peak is presented in the $\pizero$ mass distribution.
+Owing to the energy deficiency discussed in 
+both~\Cref{sec:single_em,sec:ongoing}, the peak is not centered at
+135~MeV.
+Along with this issue, a study significantly improving the efficiency 
+is discussed in~\Cref{sec:merging}.\\
 \\
+% --------------------------------------------------------------------
+% Figure: pi0 mass
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.75\textwidth]{figs/mc/single_pi0/RecoPi0Mass.eps}
+\caption{Reconstructed $\pizero$ mass distribution from the single $\pizero$
+MC sample.}
+\label{fig:mpi0_single_pi0}
+\end{center}
+\end{figure}
+% --------------------------------------------------------------------
 % DCA, MC/reco combination to check the features of the pi0 mass 
 % distributions
 We further investigate the distance of closest approach between
 the $\pizero$ decay point from the MC truth information and
 the reconstructed shower direction.
-Fig.? demonstrates the reconstructed shower direction is reasonable.
-In addition, as shown in Fig.?,
+\Cref{fig:dca_single_pi0} presents the distance of the closest
+approach between the two reconstructed shower axes and the
+true $\pizero$ decay point,
+demonstrating the reconstructed shower direction is reasonable.
+In addition, as shown in~\Cref{fig:mc_reco_single_pi0},
 we check the impact of the energy and direction by
 combining quatities from MC showers
 and reconstructed showers,
 \begin{itemize}
-\item MC truth energy and direction: a $\delta$-function at 134~MeV,
+\item MC truth energy and direction: a $\delta$-function at 135~MeV,
 \item MC deposited energy and MC truth direction: the long tail
       represents the energy outside the detector,
 \item MC deposited energy and reconstructed direction: the smeared
@@ -161,6 +213,44 @@ and reconstructed showers,
       as well as the width of the distribution.
 \end{itemize}
 
+% --------------------------------------------------------------------
+% Figure: DCA
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.75\textwidth]{figs/mc/single_pi0/pi0_DCA.eps}
+\caption{The distance of closest approach from the two reconstructed
+shower axes to the true $\pizero$ decay points.}
+\label{fig:dca_single_pi0}
+\end{center}
+\end{figure}
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
+% Figure: MC+Reco
+\begin{figure}[htbp]
+\begin{center}
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=0.9\linewidth]{figs/mc/single_pi0/MCPi0Mass.eps}
+\caption{}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=0.9\linewidth]{figs/mc/single_pi0/PerfectRecoPi0Mass.eps}
+\caption{}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=0.9\linewidth]{figs/mc/single_pi0/DepERecoThetaPi0Mass.eps}
+\caption{}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=0.9\linewidth]{figs/mc/single_pi0/RecoEMCThetaPi0Mass.eps}
+\caption{}
+\end{subfigure}
+\caption{$\pizero$ mass distribution from (a) true energy and true direction,
+(b) true deposited energy and true direction, (c) true deposited energy
+and reconstructed direction, and (d) reconstructed energy and true direction.}
+\label{fig:mc_reco_single_pi0}
+\end{center}
+\end{figure}
+% --------------------------------------------------------------------
 % -----------------------------------------------------------------------
 \subsection{Full BNB Neutrinos and Cosmic Sample}
 \label{sec:bnb}
