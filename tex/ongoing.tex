@@ -2,11 +2,11 @@
 \label{sec:ongoing}
 
 In this section, we discuss the ongoing studies on the deficit in
-the reconstructed energy, and the proposed treatments which is being
+the reconstructed energy, and the proposed treatments being
 tested.
 In addition, we outline the plans on the shower reconstruction in
-near future, which aim to cope with events with more complicated
-topologies.
+near future, aiming to cope with events with more complicated
+topologies.\\
 
 % -----------------------------------------------------------------------
 \subsection{Energy Deficit}
@@ -48,7 +48,7 @@ beyond clustering inefficiency.
 This might attribute to energy calibration, and/or small amount of 
 charge deposition which does not pass the threshold in the hit finder.
 Furthermore, the existence of bad wires degrades the resolution, but
-does not have a significant impact on the energy deficiency.
+does not have a significant impact on the averaged energy deficiency.\\
 
 % --------------------------------------------------------------------
 % Figure: Energy checks
@@ -77,7 +77,7 @@ It is noticable Pandora creates multiple small PFParticles in
 a single electron/photon event, and leaves a number of hits unclustered.
 To retrieve the energy, we start with merging PFParticles, and then
 perform a reclustering algorithm to collect the unclustered hits.
-\Cref{sec:merging,sec:adding_hits} sketch the two steps respectively.
+\Cref{sec:merging,sec:adding_hits} sketch the two steps respectively.\\
 
 % --------------------------------------------------------------------
 % Figure: Clustering
@@ -118,17 +118,44 @@ PFParticles are merged if either of the following requirements is met:
       within the cone of the other
 \end{itemize}
 The cone size in this study is set to the opening angle of the shower,
-but is subject to be optimized in the future.\\
+but is subject to be optimized in the future.
+The effect of merging is illustrated in~\Cref{fig:merging}.\\
 \\
+% --------------------------------------------------------------------
+% Figure: Merging example
+\begin{figure}[htbp]
+\begin{center}
+\begin{subfigure}{0.45\textwidth}
+\fbox{\includegraphics[width=\linewidth]{figs/ongoing/merging/evd/Evt113U_showerlike.png}}
+\fbox{\includegraphics[width=\linewidth]{figs/ongoing/merging/evd/Evt113V_showerlike.png}}
+\fbox{\includegraphics[width=\linewidth]{figs/ongoing/merging/evd/Evt113Y_showerlike.png}}
+\caption{}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+\fbox{\includegraphics[width=\linewidth]{figs/ongoing/merging/evd/Evt113U_merged.png}}
+\fbox{\includegraphics[width=\linewidth]{figs/ongoing/merging/evd/Evt113V_merged.png}}
+\fbox{\includegraphics[width=\linewidth]{figs/ongoing/merging/evd/Evt113Y_merged.png}}
+\caption{}
+\end{subfigure}
+\caption{An example of PFParticle merging in a single $\pizero$ MC event
+in the U, V, and Y wire planes,
+(a) each triangle representing an unmerged shower-like PFParticle,
+(b) each triangle representing a merged PFParticle.}
+\label{fig:merging}
+\end{center}
+\end{figure}
+% --------------------------------------------------------------------
+
+
 The shower reconstruction based on merged PFParticles are compared
 to that on shower-like ones in~\Cref{fig:shr_quality_merged_single_e,fig:shr_quality_merged_single_gamma,fig:mpi0_merged_single_pi0},
 for the single electron, photon, and $\pizero$ samples, respectively.
 Using merged PFParticles significantly improve the efficiency on
-shower reconstruction and thereby the $\pizero$ mass reconstruction,
-as there are nonnegligible PFParticles in these samples identified
+shower reconstruction and thereby the $\pizero$ mass reconstruction
+(increased by a factor of three),
+as a nonnegligible amount of PFParticles in these samples are identified
 as tracks.
-Nonetheless, the energy deficiency persists with a similar amount in
-the reconstruction based on merged PFParticles, suggesting the broken
+Nonetheless, the energy deficiency persists, suggesting the broken
 PFParticles are not the main source of clustering inefficiency.\\
 \\
 % --------------------------------------------------------------------
@@ -197,8 +224,7 @@ shower-like PFParticles in the single $\pizero$ MC sample.}
 Incidentally,
 the energy resolution distributions for merged PFParticles have a 
 low energy tail (a small peak near one) owing to the fact that
-small PFParticles are often identified as tracks, and are taken into
-account in this case.
+small PFParticles are often identified as tracks.\\
 
 % -----------------------------------------------------------------------
 \subsubsection{Adding Unclustered Hits}
@@ -208,7 +234,7 @@ To further investigate the key source of clustering inefficiency
 and retrieve unreconstructed energy,
 we add unclustered hits into the hit collection associated to a 
 PFParticle according to a cone algorithm.
-This study is currently underway.
+This study is currently underway.\\
 
 % -----------------------------------------------------------------------
 \subsection{Short Term Plans}
@@ -228,7 +254,7 @@ and start testing as well as further developing the reclustering algorithms
 which add unclustered hits into PFParticles and would possibly
 eliminate the energy deficiency.
 The algorithms would possibly be integrated into the Pandora
-toolkit in as a mid-term goal.
+toolkit in a mid-term.
 
 \item {\bf Shower Profiling} \\
 It is likely that merging and reclustering algorithms would not
@@ -239,13 +265,15 @@ correction factors accordingly.
 \item {\bf Track-Shower Identification} \\
 From the studies in~\Cref{sec:merging}, we notice
 a nonnegligible fraction of PFParticles originating from an 
-electromagnetic particle is identified as a track by Pandora.
-The track-shower identification thereby needs to be modified.
+electromagnetic particle behaves like a track and is thereby
+identified as a track by Pandora.
+Hence, the track-shower identification needs to be modified.
 We will examine the features of tracks and showers based on
 simulation and develop a track/shower determination.
 
 \item {\bf Electron-Photon Separation} \\
-As shown in~Fig.x, the electron-photon separation in
+As shown in~\Cref{fig:shr_quality_single_em,fig:shr_quality_merged_single_e,fig:shr_quality_merged_single_gamma}, 
+the electron-photon separation in
 dE/dx needs to be improved such that efficiently distinguishing 
 those two particles can be achieved.
 By further investigating the features of showers we may be able 

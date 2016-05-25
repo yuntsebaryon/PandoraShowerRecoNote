@@ -2,7 +2,7 @@
 \label{sec:reco}
 
 In this section we describe the underlying concepts for shower reconstruction.
-The technical details are dispicted in DocDB ?.
+The technical details are dispicted in~\cite{DocDB5857}.\\
 
 % -----------------------------------------------------------------------
 \subsection{Brief Introduction to Pandora}
@@ -41,7 +41,7 @@ by Pandora,
 
 In this study, each PFParticle is exploited as a shower candidate.
 We describe the algorithms of shower reconstruction 
-utilizing PFParticles and associated features in the following sections.
+utilizing PFParticles and associated features in the following sections.\\
 
 % -----------------------------------------------------------------------
 \subsection{Direction}
@@ -64,7 +64,7 @@ within the Pandora toolkit.\\
 % shower reconstruction algorithms.\\
 \\
 In addtion, the (unweighted) 3D centroid of a PFParticle evaluated
-by PCA is saved for possible exploitation in other algorithms.
+by PCA is saved for possible exploitation in other algorithms.\\
 
 % -----------------------------------------------------------------------
 \subsection{Geometry}
@@ -98,7 +98,7 @@ largest eigenvalue to that for the largest one, i.e.
 \label{eq:shropeningangle}
 \textrm{Opening Angle} = 2\times \tan^{-1}({\frac{\textrm{the 2nd largest eigenvalue}}{\textrm{the largest eigenvalue}}})
 \end{equation}
-
+\\
 % -----------------------------------------------------------------------
 \subsection{Starting Point}
 \label{sec:shr_startingpt}
@@ -121,10 +121,10 @@ the tip of the cone indicates the starting point discussed in this section.
 \caption{}
 \label{fig:shr_reco_example_3d}
 \end{subfigure}
-\begin{subfigure}{0.45\textwidth}
-\includegraphics[width=0.85\linewidth]{figs/reco/single_e_Evt1U.png}\\
-\includegraphics[width=0.85\linewidth]{figs/reco/single_e_Evt1V.png}\\
-\includegraphics[width=0.85\linewidth]{figs/reco/single_e_Evt1Y.png}
+\begin{subfigure}{0.4\textwidth}
+\fbox{\includegraphics[width=0.9\linewidth]{figs/reco/single_e_Evt1U.png}}
+\fbox{\includegraphics[width=0.9\linewidth]{figs/reco/single_e_Evt1V.png}}
+\fbox{\includegraphics[width=0.9\linewidth]{figs/reco/single_e_Evt1Y.png}}
 \caption{}
 \label{fig:shr_reco_example_2d}
 \end{subfigure}
@@ -145,9 +145,9 @@ profile the reconstructed shower.}
 \label{sec:shr_calorimetry}
 
 The calorimetry quantities, such as energy, dQ/dx, and dE/dx, are
-evaluated using the algorithms described in DocDB XXXX.
+evaluated using the algorithms described in~\cite{DocDB5857}.
 The sources of discrepancy in these quantities between the other
-shower reconstruction chain and this work are listed below,
+shower reconstruction workflow and this one are listed below,
 \begin{itemize}
 \item Clustering: Pandora provides the input clusters for energy
       evaluation, and the reconstructed energy obviously depends
@@ -161,5 +161,5 @@ shower reconstruction chain and this work are listed below,
 
 The calorimetry quantities are evaluated for each individual plane,
 since the charge and energy variables are determined from charge
-deposition in hits, 2D reconstructed objects.
+deposition in hits, 2D reconstructed objects.\\
 
